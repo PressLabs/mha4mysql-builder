@@ -41,20 +41,16 @@ prepare:
 	@mkdir -p $(TARGET) || true
 
 	@echo "Fetching mha4mysql-manager from $(MHA4MYSQL_MANAGER_URL)"
-	@mkdir $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)
-	@wget -q $(MHA4MYSQL_MANAGER_URL) -O $(TARGET)/mha4mysql-manager.tar.gz
-	@tar -zxf $(TARGET)/mha4mysql-manager.tar.gz -C $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION) --strip-components=1
-	@rm $(TARGET)/mha4mysql-manager.tar.gz
-	@rm -rf $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)/debian
-	@tar -zcf $(TARGET)/mha4mysql-manager_$(MHA4MYSQL_MANAGER_VERSION).orig.tar.gz -C $(TARGET) mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)
+	mkdir $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)
+	wget -q $(MHA4MYSQL_MANAGER_URL) -O $(TARGET)/mha4mysql-manager_$(MHA4MYSQL_MANAGER_VERSION).orig.tar.gz
+	tar -zxf $(TARGET)/mha4mysql-manager_$(MHA4MYSQL_MANAGER_VERSION).orig.tar.gz -C $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION) --strip-components=1
+	rm -rf $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)/debian
 
 	@echo "Fetching mha4mysql-node from $(MHA4MYSQL_NODE_URL)"
-	@mkdir $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION)
-	@wget -q $(MHA4MYSQL_NODE_URL) -O $(TARGET)/mha4mysql-node.tar.gz
-	@tar -zxf $(TARGET)/mha4mysql-node.tar.gz -C $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION) --strip-components=1
-	@rm $(TARGET)/mha4mysql-node.tar.gz
-	@rm -rf $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION)/debian
-	@tar -zcf $(TARGET)/mha4mysql-node_$(MHA4MYSQL_NODE_VERSION).orig.tar.gz -C $(TARGET) mha4mysql-node-$(MHA4MYSQL_NODE_VERSION)
+	mkdir $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION)
+	wget -q $(MHA4MYSQL_NODE_URL) -O $(TARGET)/mha4mysql-node_$(MHA4MYSQL_NODE_VERSION).orig.tar.gz
+	tar -zxf $(TARGET)/mha4mysql-node_$(MHA4MYSQL_NODE_VERSION).orig.tar.gz -C $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION) --strip-components=1
+	rm -rf $(TARGET)/mha4mysql-node-$(MHA4MYSQL_NODE_VERSION)/debian
 
 	@echo "Preparing ./debian folder"
 	@cp -r debian-manager $(TARGET)/mha4mysql-manager-$(MHA4MYSQL_MANAGER_VERSION)/debian
