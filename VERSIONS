@@ -2,9 +2,9 @@
 
 # Change the module version and modules list here accordingly
 MHA4MYSQL_MANAGER_VERSION := 0.57.1-4b253dd
-MHA4MYSQL_NODE_VERSION := 0.57.1-1f6bc82
+MHA4MYSQL_NODE_VERSION := 0.57.2-0f27e375de
 
 # This part should rarely change, but if some links are not found, this might
 # be the culprit
 MHA4MYSQL_MANAGER_URL := https://github.com/yoshinorim/mha4mysql-manager/archive/4b253dd.tar.gz
-MHA4MYSQL_NODE_URL := https://github.com/yoshinorim/mha4mysql-node/archive/1f6bc82.tar.gz
+MHA4MYSQL_NODE_URL := https://github.com/Presslabs/mha4mysql-node/archive/0f27e375de.tar.gz
